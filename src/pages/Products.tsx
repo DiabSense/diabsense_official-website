@@ -1,11 +1,8 @@
 import { Check, ArrowRight } from "lucide-react";
 import imgProductsHero from "@/assets/images/products/products-hero.png";
-import imgLiteProduct from "@/assets/images/products/lite-product.png";
-import imgHomeProduct from "@/assets/images/products/home-product.png";
-import imgProProduct from "@/assets/images/products/pro-product.png";
-import imgProductsSensor from "@/assets/images/products/products-sensor.png";
-import imgProductsFootScan from "@/assets/images/products/products-foot-scan.png";
-import imgProductsDevice from "@/assets/images/products/products-device.png";
+import imgFootScanPro from "@/assets/images/products/FootScan Pro.jpg";
+import imgFootScanLite from "@/assets/images/products/FootScan Lite.jpg";
+import imgFootScanHome from "@/assets/images/products/FootScan Home.jpg";
 import imgProductsClinic from "@/assets/images/products/products-clinic.png";
 import { inter, manrope, erasBook } from "@/utils/fonts";
 import { ProductPageIcons } from "@/assets/icons/index";
@@ -64,8 +61,8 @@ export default function Products() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Lite */}
             <div className="bg-white rounded-xl shadow-[0px_4px_12px_0px_rgba(0,43,107,0.06)] overflow-hidden flex flex-col">
-              <div className="h-48 overflow-hidden">
-                <img src={imgLiteProduct} alt="FootScan Lite" className="w-full h-full object-cover" />
+              <div className="h-85 overflow-hidden">
+                <img src={imgFootScanLite} alt="FootScan Lite" className="w-full h-full object-cover" />
               </div>
               <div className="p-8 flex flex-col flex-1">
                 <p className="text-[#006b5f] text-xs font-semibold tracking-[1.2px] mb-2" style={inter}>MOBILE FIRST</p>
@@ -84,8 +81,8 @@ export default function Products() {
 
             {/* Home – featured */}
             <div className="bg-white rounded-xl border-2 border-[#003d9b] shadow-[0px_4px_12px_0px_rgba(0,43,107,0.06)] overflow-hidden flex flex-col">
-              <div className="h-48 overflow-hidden relative">
-                <img src={imgHomeProduct} alt="FootScan Home" className="w-full h-full object-cover" />
+              <div className="h-85 overflow-hidden relative">
+                <img src={imgFootScanHome} alt="FootScan Home" className="w-full h-full object-cover" />
                 <div className="absolute top-4 right-4 bg-[#003d9b] text-white text-[10px] font-bold px-3 py-1 rounded-full" style={inter}>BEST FOR PATIENTS</div>
               </div>
               <div className="p-8 flex flex-col flex-1">
@@ -105,8 +102,8 @@ export default function Products() {
 
             {/* Pro */}
             <div className="bg-white rounded-xl shadow-[0px_4px_12px_0px_rgba(0,43,107,0.06)] overflow-hidden flex flex-col">
-              <div className="h-48 overflow-hidden">
-                <img src={imgProProduct} alt="FootScan Pro" className="w-full h-full object-cover" />
+              <div className="h-85 overflow-hidden">
+                <img src={imgFootScanPro} alt="FootScan Pro" className="w-full h-full object-cover" />
               </div>
               <div className="p-8 flex flex-col flex-1">
                 <p className="text-[#404445] text-xs font-semibold tracking-[1.2px] mb-2" style={inter}>CLINICAL SUITE</p>
@@ -129,37 +126,61 @@ export default function Products() {
       {/* ── FootScan Lite detail ── */}
       <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <p className="text-[#006389] text-xs font-extrabold uppercase tracking-[1.2px] mb-2" style={manrope}>Wellness / Consumer</p>
               <h2 className="text-3xl lg:text-4xl font-bold text-[#181c1f] mb-4" style={manrope}>FootScan Lite</h2>
               <p className="text-[#3f484e] text-base leading-relaxed mb-8" style={manrope}>
                 Lightweight preventive care for daily wellness enthusiasts. Real-time monitoring and basic thermal health tracking.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-8">
                 {["Smart Wellness Scanner", "Thermal Basics", "Preventive Mobile Alerts"].map(f => (
-                  <li key={f} className="flex items-center gap-3 text-sm font-medium text-[#181c1f]" style={manrope}>
-                    <span className="w-3 h-3 bg-[#006389] rounded-sm shrink-0 block" /> {f}
+                  <li key={f} className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#006389]/10 text-[#006389] flex items-center justify-center">
+                      <Check size={14} strokeWidth={3} />
+                    </div>
+                    <span className="text-sm font-semibold text-[#181c1f]" style={manrope}>{f}</span>
                   </li>
                 ))}
               </ul>
-              <button className="flex items-center gap-2 text-[#006389] font-bold text-base hover:gap-3 transition-all" style={manrope}>
-                Explore Lite <ArrowRight size={16} />
-              </button>
+              <div>
+                <button className="group inline-flex items-center gap-2 border border-[#006389] text-[#006389] hover:bg-[#006389] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 shadow-sm hover:shadow-md" style={manrope}>
+                  Explore Lite
+                  <ArrowRight size={16} className="transform transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </div>
             </div>
-            <div>
-              <img src={imgProductsSensor} alt="FootScan Lite sensor" className="w-full h-72 lg:h-80 object-cover rounded-2xl" />
+            <div className="relative w-full flex justify-center items-center py-10 lg:py-16 bg-gradient-to-br from-slate-50/80 to-slate-100/40 rounded-3xl border border-slate-100 shadow-sm overflow-hidden group">
+              <div className="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-[#006389]/5 blur-3xl transition-opacity group-hover:opacity-80" />
+              <div className="absolute -bottom-12 -right-12 w-64 h-64 rounded-full bg-[#006389]/5 blur-3xl transition-opacity group-hover:opacity-80" />
+              <div className="relative z-10 w-11/12 max-w-[460px] aspect-square rounded-2xl overflow-hidden shadow-lg bg-white border border-slate-200/50 p-3 transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-xl">
+                <img
+                  src={imgFootScanLite}
+                  alt="FootScan Lite sensor"
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── FootScan Home detail ── */}
-      <section className="py-24 bg-[#f8f9fb]">
+      <section className="py-24 bg-[#7ba9ca40]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <img src={imgProductsFootScan} alt="FootScan Home" className="w-full h-72 lg:h-80 object-cover rounded-2xl" />
+              <div className="relative w-full flex justify-center items-center py-10 lg:py-16 bg-gradient-to-br from-slate-50/80 to-slate-100/40 rounded-3xl border border-slate-100 shadow-sm overflow-hidden group">
+                <div className="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-[#003d9b]/5 blur-3xl transition-opacity group-hover:opacity-80" />
+                <div className="absolute -bottom-12 -right-12 w-64 h-64 rounded-full bg-[#003d9b]/5 blur-3xl transition-opacity group-hover:opacity-80" />
+                <div className="relative z-10 w-11/12 max-w-[460px] aspect-square rounded-2xl overflow-hidden shadow-lg bg-white border border-slate-200/50 p-3 transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-xl">
+                  <img
+                    src={imgFootScanHome}
+                    alt="FootScan Home"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+              </div>
             </div>
             <div className="order-1 lg:order-2">
               <p className="text-[#003d9b] text-xs font-extrabold uppercase tracking-[1.2px] mb-2" style={manrope}>At-Home / Patient</p>
@@ -167,16 +188,22 @@ export default function Products() {
               <p className="text-[#3f484e] text-base leading-relaxed mb-8" style={manrope}>
                 Our flagship at-home clinical device for remote patient monitoring with direct clinical oversight and AI diagnostic reporting.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-8">
                 {["Smart Daily Scanner", "Predictive Analysis", "Doctor Alert System"].map(f => (
-                  <li key={f} className="flex items-center gap-3 text-sm font-medium text-[#181c1f]" style={manrope}>
-                    <span className="w-3 h-3 bg-[#003d9b] rounded-sm shrink-0 block" /> {f}
+                  <li key={f} className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#003d9b]/10 text-[#003d9b] flex items-center justify-center">
+                      <Check size={14} strokeWidth={3} />
+                    </div>
+                    <span className="text-sm font-semibold text-[#181c1f]" style={manrope}>{f}</span>
                   </li>
                 ))}
               </ul>
-              <button className="flex items-center gap-2 text-[#003d9b] font-bold text-base hover:gap-3 transition-all" style={manrope}>
-                Explore Home <ArrowRight size={16} />
-              </button>
+              <div>
+                <button className="group inline-flex items-center gap-2 border border-[#003d9b] text-[#003d9b] hover:bg-[#003d9b] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 shadow-sm hover:shadow-md" style={manrope}>
+                  Explore Home
+                  <ArrowRight size={16} className="transform transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -185,26 +212,40 @@ export default function Products() {
       {/* ── FootScan Pro detail ── */}
       <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <p className="text-[#404445] text-xs font-extrabold uppercase tracking-[1.2px] mb-2" style={manrope}>Institutional / Clinical</p>
               <h2 className="text-3xl lg:text-4xl font-bold text-[#181c1f] mb-4" style={manrope}>FootScan Pro</h2>
               <p className="text-[#3f484e] text-base leading-relaxed mb-8" style={manrope}>
                 Advanced diagnostic kiosk for clinics and diabetic centers. High-volume patient screening with full EHR integration.
               </p>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-8">
                 {["Multi-Patient Dashboard", "Billing Automation", "Advanced Doppler Analysis"].map(f => (
-                  <li key={f} className="flex items-center gap-3 text-sm font-medium text-[#181c1f]" style={manrope}>
-                    <span className="w-3 h-3 bg-[#404445] rounded-sm shrink-0 block" /> {f}
+                  <li key={f} className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#404445]/10 text-[#404445] flex items-center justify-center">
+                      <Check size={14} strokeWidth={3} />
+                    </div>
+                    <span className="text-sm font-semibold text-[#181c1f]" style={manrope}>{f}</span>
                   </li>
                 ))}
               </ul>
-              <button className="flex items-center gap-2 text-[#404445] font-bold text-base hover:gap-3 transition-all" style={manrope}>
-                Explore Pro <ArrowRight size={16} />
-              </button>
+              <div>
+                <button className="group inline-flex items-center gap-2 border border-[#404445] text-[#404445] hover:bg-[#404445] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 shadow-sm hover:shadow-md" style={manrope}>
+                  Explore Pro
+                  <ArrowRight size={16} className="transform transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </div>
             </div>
-            <div>
-              <img src={imgProductsDevice} alt="FootScan Pro" className="w-full h-72 lg:h-80 object-cover rounded-2xl" />
+            <div className="relative w-full flex justify-center items-center py-10 lg:py-16 bg-gradient-to-br from-slate-50/80 to-slate-100/40 rounded-3xl border border-slate-100 shadow-sm overflow-hidden group">
+              <div className="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-[#404445]/5 blur-3xl transition-opacity group-hover:opacity-80" />
+              <div className="absolute -bottom-12 -right-12 w-64 h-64 rounded-full bg-[#404445]/5 blur-3xl transition-opacity group-hover:opacity-80" />
+              <div className="relative z-10 w-11/12 max-w-[460px] aspect-square rounded-2xl overflow-hidden shadow-lg bg-white border border-slate-200/50 p-3 transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-xl">
+                <img
+                  src={imgFootScanPro}
+                  alt="FootScan Pro"
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
             </div>
           </div>
         </div>
