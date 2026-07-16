@@ -50,7 +50,7 @@ export default function Products() {
       </section>
 
       {/* ── Product Ecosystem Cards ── */}
-      <section className="bg-[#eff4ff] py-24">
+      <section className="bg-[#eff4ff] py-24 reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-2xl lg:text-3xl font-semibold text-[#0b1c30] mb-4" style={inter}>Precision at Every Scale.</h2>
@@ -108,15 +108,15 @@ export default function Products() {
               <div className="p-8 flex flex-col flex-1">
                 <p className="text-[#404445] text-xs font-semibold tracking-[1.2px] mb-2" style={inter}>CLINICAL SUITE</p>
                 <h3 className="text-2xl font-semibold text-[#0b1c30] mb-3" style={inter}>FootScan Pro</h3>
-                <p className="text-[#434654] text-sm leading-relaxed mb-4" style={inter}>Enterprise-grade RPM portal for clinics. Manage thousands of patients with automated risk stratification and billing.</p>
+                <p className="text-[#434654] text-sm leading-relaxed mb-4" style={inter}>High-volume clinical screening with direct EHR integration. Perfect for clinics and medical centers.</p>
                 <ul className="space-y-3 mb-6 flex-1">
-                  {["Clinical Portal Integration", "Automated CPT Billing"].map(f => (
+                  {["Multi-Patient Monitoring", "EHR HL7 FHIR Support", "Clinical Insights"].map(f => (
                     <li key={f} className="flex items-center gap-2 text-sm text-[#0b1c30]" style={inter}>
                       <Check size={12} color="#404445" className="shrink-0" /> {f}
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-3 border-2 border-[#404445] text-[#404445] rounded-lg font-semibold text-base hover:bg-[#404445] hover:text-white transition-colors" style={inter}>Request Enterprise</button>
+                <button className="w-full py-3 border-2 border-[#404445] text-[#404445] rounded-lg font-semibold text-base hover:bg-[#404445] hover:text-white transition-colors" style={inter}>Request Trial</button>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function Products() {
       </section>
 
       {/* ── FootScan Lite detail ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
@@ -166,7 +166,7 @@ export default function Products() {
       </section>
 
       {/* ── FootScan Home detail ── */}
-      <section className="py-24 bg-[#7ba9ca40]">
+      <section className="py-24 bg-[#7ba9ca40] reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -210,7 +210,7 @@ export default function Products() {
       </section>
 
       {/* ── FootScan Pro detail ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
@@ -252,7 +252,7 @@ export default function Products() {
       </section>
 
       {/* ── Surgical Precision ── */}
-      <section className="py-24 bg-[#0b1c30]">
+      <section className="py-24 bg-[#0b1c30] reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -277,7 +277,7 @@ export default function Products() {
       </section>
 
       {/* ── Choose Your Plan ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#181c1f]" style={manrope}>Choose Your Plan</h2>
@@ -315,7 +315,7 @@ export default function Products() {
       </section>
 
       {/* ── Unified Care Journey ── */}
-      <section className="bg-[#f1f4f8] py-16 md:py-24">
+      <section className="bg-[#f1f4f8] py-16 md:py-24 reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#181c1f] mb-4" style={manrope}>Unified Care Journey</h2>
@@ -344,7 +344,7 @@ export default function Products() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-[#f1f4f8]">
+      <section className="py-24 bg-[#f1f4f8] reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="bg-[#2d8ab8] rounded-[40px] p-16 lg:p-24 text-center">
             <h2 className="text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-8" style={manrope}>
