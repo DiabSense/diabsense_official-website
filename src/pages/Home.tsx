@@ -2,7 +2,7 @@ import { Check, ArrowRight } from "lucide-react";
 import { Page } from "@/components/layout/Navbar";
 import imgScanningInterface from "@/assets/images/home/scanning-interface.png";
 import imgMedicalSolution from "@/assets/images/home/medical-solution.png";
-import imgHomeHeroBg from "@/assets/images/home/home-hero-bg.png";
+// import imgHomeHeroBg from "@/assets/images/home/home-hero-bg.png";
 import { inter, manrope } from "@/utils/fonts";
 import { HomeIcons } from "@/assets/icons/index";
 
@@ -17,6 +17,7 @@ interface HomeProps {
 }
 
 export default function Home({ setPage }: HomeProps) {
+
   return (
     <div>
       {/* ── Hero ── */}
@@ -70,7 +71,8 @@ export default function Home({ setPage }: HomeProps) {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4 mb-10">
-                <button className="group bg-[#003d9b] hover:bg-[#00296d] text-white px-7 py-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_4px_20px_rgba(0,61,155,0.25)] hover:shadow-[0_6px_25px_rgba(0,61,155,0.35)] flex items-center gap-2" style={manrope}>
+                <button onClick={() => setPage("contact")}
+                  className="group bg-[#003d9b] hover:bg-[#00296d] text-white px-7 py-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_4px_20px_rgba(0,61,155,0.25)] hover:shadow-[0_6px_25px_rgba(0,61,155,0.35)] flex items-center gap-2" style={manrope}>
                   <span>Request Consultation</span>
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -388,17 +390,18 @@ export default function Home({ setPage }: HomeProps) {
       <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="bg-[#2d8ab8] rounded-[40px] p-16 lg:p-24 text-center overflow-hidden relative">
-            <img src={imgHomeHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" />
+            {/* <img src={imgHomeHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" /> */}
             <div className="relative">
               <p className="text-white/60 text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Prevention</p>
               <h2 className="text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-8" style={manrope}>
                 Ready to prevent the next amputation?
               </h2>
+              <p className="text-white text-md font-medium mb-8" style={manrope}>Join the hundreds of healthcare providers and thousands of patients securing their future with DiabSense AI.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-[#2d8ab8] px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-wide hover:bg-white/90 transition-colors" style={manrope}>
+                <button onClick={() => setPage("contact")} className="cursor-pointer bg-white text-[#2d8ab8] px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-wide hover:bg-white/90 transition-colors" style={manrope}>
                   Book Your FootScan Demo
                 </button>
-                <button className="border-2 border-white text-white px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-wide hover:bg-white/10 transition-colors" style={manrope}>
+                <button onClick={() => setPage("contact")} className="cursor-pointer border-2 border-white text-white px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-wide hover:bg-white/10 transition-colors" style={manrope}>
                   Partner With Us
                 </button>
               </div>

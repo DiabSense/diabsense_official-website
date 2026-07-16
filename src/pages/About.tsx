@@ -1,11 +1,21 @@
-import { Check, ArrowRight, ChevronRight } from "lucide-react";
+import * as React from "react";
+import { useState, useEffect } from "react";
+import { Check, ArrowRight, ChevronRight, Linkedin } from "lucide-react";
 import imgAboutHero from "@/assets/images/about/about-hero.png";
 import imgAboutWorldMap from "@/assets/images/about/about-world-map.png";
-import imgTeam1 from "@/assets/images/about/team1.png";
-import imgTeam2 from "@/assets/images/about/team2.png";
-import imgTeam3 from "@/assets/images/about/team3.png";
-import imgTeam4 from "@/assets/images/about/team4.png";
+// import imgTeam1 from "@/assets/images/about/team1.png";
+// import imgTeam2 from "@/assets/images/about/team2.png";
+// import imgTeam3 from "@/assets/images/about/team3.png";
+// import imgTeam4 from "@/assets/images/about/team4.png";
 import { inter, manrope } from "@/utils/fonts";
+import { TeamMembers } from "@/assets/images/about/team-members/index.ts";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+
 
 // Hashed PNG mapping:
 // f929a9517b5cf80a0cd78ee5ca9e66c3e3637f0c.png -> about-hero.png
@@ -16,6 +26,28 @@ import { inter, manrope } from "@/utils/fonts";
 // 88b2becccf35b6e6301c7b59106b15593c4c7720.png -> team4.png
 
 export default function About() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      setCanScrollPrev(api.canScrollPrev());
+      setCanScrollNext(api.canScrollNext());
+    };
+
+    onSelect();
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
+  }, [api]);
+
   return (
     <div>
       {/* ── Hero ── */}
@@ -124,36 +156,60 @@ export default function About() {
               <h2 className="text-3xl lg:text-4xl font-bold text-[#181c1f]" style={manrope}>Visionary Leadership</h2>
             </div>
             <div className="hidden sm:flex gap-3">
-              <button className="w-10 h-10 rounded-full border border-[#c4c6d4] flex items-center justify-center hover:bg-gray-200 transition-colors">
+              <button
+                onClick={() => api?.scrollPrev()}
+                disabled={!canScrollPrev}
+                className="w-10 h-10 rounded-full border border-[#c4c6d4] flex items-center justify-center hover:bg-gray-200 disabled:opacity-30 disabled:hover:bg-transparent transition-colors cursor-pointer disabled:cursor-not-allowed"
+                aria-label="Previous slide"
+              >
                 <ChevronRight size={16} className="rotate-180" />
               </button>
-              <button className="w-10 h-10 rounded-full border border-[#c4c6d4] flex items-center justify-center hover:bg-gray-200 transition-colors">
+              <button
+                onClick={() => api?.scrollNext()}
+                disabled={!canScrollNext}
+                className="w-10 h-10 rounded-full border border-[#c4c6d4] flex items-center justify-center hover:bg-gray-200 disabled:opacity-30 disabled:hover:bg-transparent transition-colors cursor-pointer disabled:cursor-not-allowed"
+                aria-label="Next slide"
+              >
                 <ChevronRight size={16} />
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-            {[
-              { img: imgTeam1, name: "Dr. Alistair Vance", title: "Co-Founder & CEO", desc: "Leads strategic direction at MIT, with a doctorate in Biomedical Engineering." },
-              { img: imgTeam2, name: "Sarah Jenkins", title: "Chief Scientific Officer", desc: "Former Head of Academic Neurology with 15+ years in non-invasive biomedical sensing." },
-              { img: imgTeam3, name: "Marcus Thomas", title: "Head of Engineering", desc: "Ex-SpaceX manufacturing engineer, coordinates global cross-functional R&D teams." },
-              { img: imgTeam4, name: "Dr. Elena Rodriguez", title: "Chief of Medicine", desc: "Board-certified endocrinologist specializing in diabetic care and amputation research." },
-            ].map(m => (
-              <div key={m.name}>
-                <div className="rounded-2xl overflow-hidden mb-4 aspect-[3/4]">
-                  <img src={m.img} alt={m.name} className="w-full h-full object-cover" />
-                </div>
-                <h4 className="font-bold text-[#181c1f] text-base mb-1" style={manrope}>{m.name}</h4>
-                <p className="text-[#2d8ab8] text-sm font-medium mb-2" style={manrope}>{m.title}</p>
-                <p className="text-[#456274] text-xs leading-relaxed" style={inter}>{m.desc}</p>
-              </div>
-            ))}
-          </div>
+          <Carousel setApi={setApi} opts={{ align: "start", loop: false }} className="w-full">
+            <CarouselContent className="-ml-6">
+              {[
+                { img: TeamMembers.image1, name: "Kosala Jayasundara", title: "Founder & CEO", desc: "20 years of expertise in medical (FDA Class I/II ) and electronic product development", linkedin: "https://www.linkedin.com/in/kosala-jayasundara" },
+                { img: TeamMembers.image2, name: "Thusitha Samarasekara", title: "CTO", desc: "16 years in high-reliability product development and launch", linkedin: "https://www.linkedin.com/in/thusitha-samarasekara-56563828b" },
+                { img: TeamMembers.image3, name: "Tharini Withanage", title: "Business Development Lead", desc: "5 years in Business management and Business dev. for MedTech Innovation", linkedin: "https://www.linkedin.com/in/tharini-withanage" },
+                { img: TeamMembers.image4, name: "Gaweshika Liyadipita", title: "Project Management Lead", desc: "3 years in PM for Medical Product Development Space", linkedin: "https://www.linkedin.com/in/gaweshikaliyadipita" },
+                { img: TeamMembers.image5, name: "Ravini Samarakoon", title: "Clinical Manager", desc: "Experienced Biomedical Engineer", linkedin: "https://www.linkedin.com/in/ravinisamarakoon" },
+              ].map(m => (
+                <CarouselItem key={m.name} className="pl-6 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                  <div className="h-full flex flex-col">
+                    <div className="relative rounded-2xl overflow-hidden mb-4 aspect-[3/4] bg-[#2d8ab950]">
+                      <img src={m.img} alt={m.name} className="w-full h-full object-cover" />
+                      <a
+                        href={m.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0a66c2] hover:text-[#004182] flex items-center justify-center shadow-md transition-all hover:scale-110 cursor-pointer"
+                        aria-label={`${m.name}'s LinkedIn profile`}
+                      >
+                        <Linkedin size={14} />
+                      </a>
+                    </div>
+                    <h4 className="font-bold text-[#181c1f] text-base mb-1" style={manrope}>{m.name}</h4>
+                    <p className="text-[#2d8ab8] text-sm font-medium mb-2" style={manrope}>{m.title}</p>
+                    <p className="text-[#456274] text-xs leading-relaxed mt-auto" style={inter}>{m.desc}</p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
       {/* ── Scientific Advisory Board ── */}
-      <section className="py-24 bg-white">
+      {/* <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Expert Guidance</p>
@@ -176,6 +232,65 @@ export default function About() {
             ))}
           </div>
         </div>
+        
+      </section> */}
+
+      <section className="py-24 bg-[#f3f4f6]">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-2" style={manrope}>Expert Guidance</p>
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#181c1f]" style={manrope}>Consultants & Medical Advisors</h2>
+            </div>
+            <div className="hidden sm:flex gap-3">
+              <button
+                onClick={() => api?.scrollPrev()}
+                disabled={!canScrollPrev}
+                className="w-10 h-10 rounded-full border border-[#c4c6d4] flex items-center justify-center hover:bg-gray-200 disabled:opacity-30 disabled:hover:bg-transparent transition-colors cursor-pointer disabled:cursor-not-allowed"
+                aria-label="Previous slide"
+              >
+                <ChevronRight size={16} className="rotate-180" />
+              </button>
+              <button
+                onClick={() => api?.scrollNext()}
+                disabled={!canScrollNext}
+                className="w-10 h-10 rounded-full border border-[#c4c6d4] flex items-center justify-center hover:bg-gray-200 disabled:opacity-30 disabled:hover:bg-transparent transition-colors cursor-pointer disabled:cursor-not-allowed"
+                aria-label="Next slide"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+          <Carousel setApi={setApi} opts={{ align: "start", loop: false }} className="w-full">
+            <CarouselContent className="-ml-6">
+              {[
+                { img: TeamMembers.image6, name: "Prof. Shervanithi", title: "Lead Medical Officer", desc: "Esteemed vascular surgeon; professor at Leeds and UCL (UK).", linkedin: "https://www.linkedin.com/in/shervanthi-homer-vanniasinkam-b7171b20b/" },
+                { img: TeamMembers.image7, name: "Dr. Thushan", title: "Medical Officer", desc: "Leads local clinical trials; Sri Lankan medical advisor.", linkedin: "https://www.linkedin.com/in/thushan-gooneratne/" },
+                { img: TeamMembers.image8, name: "Tehnopol", title: "Business Consultancy", desc: "Leading Startup Hub in Estonia.", linkedin: "https://www.linkedin.com/company/tehnopol/" },
+              ].map(m => (
+                <CarouselItem key={m.name} className="pl-6 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
+                  <div className="h-full flex flex-col">
+                    <div className="relative rounded-2xl overflow-hidden mb-4 aspect-[3/4] bg-[#2d8ab910]">
+                      <img src={m.img} alt={m.name} className={`w-full h-full ${m.name === "Tehnopol" ? "object-contain" : "object-cover"}`} />
+                      <a
+                        href={m.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#0a66c2] hover:text-[#004182] flex items-center justify-center shadow-md transition-all hover:scale-110 cursor-pointer"
+                        aria-label={`${m.name}'s LinkedIn profile`}
+                      >
+                        <Linkedin size={14} />
+                      </a>
+                    </div>
+                    <h4 className="font-bold text-[#181c1f] text-base mb-1" style={manrope}>{m.name}</h4>
+                    <p className="text-[#2d8ab8] text-sm font-medium mb-2" style={manrope}>{m.title}</p>
+                    <p className="text-[#456274] text-xs leading-relaxed mt-auto" style={inter}>{m.desc}</p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
       </section>
 
       {/* ── Engineered by ExcelTech ── */}
@@ -184,9 +299,9 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-[#91afff] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Synergy Partner</p>
-              <h2 className="text-4xl font-bold text-white mb-6" style={manrope}>Engineered by ExcelTech</h2>
+              <h2 className="text-4xl font-bold text-white mb-6" style={manrope}>Engineered by <span className="text-[#f8a000] hover:text-[#ffd84a] transition-colors duration-300"><a href="https://exceltch.com/" target="_blank">ExcelTech OÜ</a></span></h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8" style={inter}>
-                Our strategic partnership with ExcelTech, the world's leading medical sensor manufacturer, ensures that DiabSense devices are engineered with class-leading precision. This partnership ensures that every DiabSense unit you receive will perform.
+                Our strategic partnership with ExcelTech OÜ, the world's leading medical sensor manufacturer, ensures that DiabSense devices are engineered with class-leading precision. This partnership ensures that every DiabSense unit you receive will perform.
               </p>
               <div className="flex flex-wrap gap-4">
                 <button className="bg-white text-[#003d9b] px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wide hover:bg-white/90 transition-colors" style={manrope}>
@@ -217,12 +332,13 @@ export default function About() {
             We are currently seeking strategic partners and investors for our Series A expansion. Help us scale clinical accuracy globally.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#003d9b] text-[#003d9b] px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-wide hover:bg-[#003d9b]/10 transition-colors bg-transparent border-2 border-[#003d9b] invisible" style={manrope}>
+            {/* <button className="bg-[#003d9b] text-[#003d9b] px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-wide hover:bg-[#003d9b]/10 transition-colors bg-transparent border-2 border-[#003d9b] invisible" style={manrope}>
               Partner With Us
-            </button>
+            </button> */}
             <button className="bg-[#003d9b] text-white px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-wide hover:bg-[#00296d] transition-colors" style={manrope}>
               Partner With Us
             </button>
+
           </div>
         </div>
       </section>
