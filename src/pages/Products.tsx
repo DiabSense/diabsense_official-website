@@ -7,7 +7,8 @@ import imgProductsSensor from "@/assets/images/products/products-sensor.png";
 import imgProductsFootScan from "@/assets/images/products/products-foot-scan.png";
 import imgProductsDevice from "@/assets/images/products/products-device.png";
 import imgProductsClinic from "@/assets/images/products/products-clinic.png";
-import { inter, manrope } from "@/utils/fonts";
+import { inter, manrope, erasBook } from "@/utils/fonts";
+import { ProductPageIcons } from "@/assets/icons/index";
 
 // Hashed PNG mapping:
 // 1dec618a58dcc3d38486877feed068a024ec0034.png -> lite-product.png
@@ -31,7 +32,7 @@ export default function Products() {
         <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8 py-24 w-full">
           <div className="max-w-2xl">
             <h1 className="tracking-tight mb-6" style={{ ...inter, fontSize: "clamp(3rem,7vw,4.5rem)", lineHeight: 1 }}>
-              <span className="font-extrabold text-[#81cfff] block">DiabSense</span>
+              <span className="text-[#81cfff] block" style={erasBook}>DiabSense</span>
               <span className="font-extrabold text-white block">Ecosystem</span>
             </h1>
             <p className="text-[#adcae0] text-lg lg:text-xl leading-relaxed mb-8" style={inter}>
@@ -39,11 +40,11 @@ export default function Products() {
             </p>
             <div className="flex flex-wrap gap-3">
               <div className="bg-[#181c1f] border border-[rgba(63,72,78,0.3)] rounded px-4 py-2 flex items-center gap-2">
-                <div className="w-5 h-5 bg-[#81cfff]/20 rounded-sm" />
-                <span className="text-[#81cfff] text-sm font-semibold tracking-[1.4px] uppercase" style={manrope}>Cloud AI Integration</span>
+                <img src={ProductPageIcons.icon1} alt="" className="w-5 h-5" />
+                <span className="text-[#81cfff] text-sm font-semibold   tracking-[1.4px] uppercase" style={manrope}>Cloud AI Integration</span>
               </div>
               <div className="bg-[#181c1f] border border-[rgba(63,72,78,0.3)] rounded px-4 py-2 flex items-center gap-2">
-                <div className="w-4 h-4 bg-[#81cfff]/20 rounded-sm" />
+                <img src={ProductPageIcons.icon2} alt="" className="w-5 h-5" />
                 <span className="text-[#81cfff] text-sm font-semibold tracking-[1.4px] uppercase" style={manrope}>Ecosystem Connect</span>
               </div>
             </div>
@@ -273,13 +274,13 @@ export default function Products() {
       </section>
 
       {/* ── Unified Care Journey ── */}
-      <section className="bg-[#f1f4f8] py-24">
+      <section className="bg-[#f1f4f8] py-16 md:py-24">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-[#181c1f] mb-4" style={manrope}>Unified Care Journey</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#181c1f] mb-4" style={manrope}>Unified Care Journey</h2>
             <p className="text-[#3f484e] text-base" style={manrope}>Data continuity from prevention to surgery.</p>
           </div>
-          <div className="relative flex items-stretch gap-10">
+          <div className="relative flex flex-col md:flex-row items-stretch gap-12 md:gap-10">
             <div className="absolute top-[50%] left-0 right-0 h-px bg-[rgba(191,200,207,0.3)] -translate-y-1/2 hidden md:block" />
             {[
               { n: "1", bg: "#006389", title: "Prevention", desc: "Lite devices monitor daily habits and flag early temperature shifts." },
@@ -294,7 +295,7 @@ export default function Products() {
                   {stage.n}
                 </div>
                 <h4 className="text-[#181c1f] text-base font-bold text-center mb-2" style={manrope}>{stage.title}</h4>
-                <p className="text-[#3f484e] text-xs text-center leading-relaxed" style={manrope}>{stage.desc}</p>
+                <p className="text-[#3f484e] text-sm text-center leading-relaxed" style={manrope}>{stage.desc}</p>
               </div>
             ))}
           </div>

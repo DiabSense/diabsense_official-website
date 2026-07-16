@@ -13,13 +13,13 @@ export default function Solution() {
   return (
     <div>
       {/* ── The Problem Hero ── */}
-      <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden flex items-center justify-center">
+      <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden flex items-center justify-center py-16 lg:py-0">
         <div className="absolute inset-0">
           <img src={imgClinicalEnvironment} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-[rgba(0,41,109,0.4)] mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-t from-[rgba(45,138,184,0.6)] via-[rgba(45,138,184,0.4)] to-[rgba(45,138,184,0.2)]" />
         </div>
-        <div className="relative text-center px-6 lg:px-8 max-w-3xl mx-auto py-24">
+        <div className="relative text-center px-6 lg:px-8 max-w-3xl mx-auto w-full">
           <p className="text-[#91afff] text-sm tracking-[3.2px] mb-8" style={manrope}>THE PROBLEM</p>
           <h1 className="text-4xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-8" style={manrope}>
             Reactive diabetic care is failing patients and providers alike.

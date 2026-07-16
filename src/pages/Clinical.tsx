@@ -3,6 +3,7 @@ import imgHospitalSetting from "@/assets/images/clinical/hospital-setting.png";
 import imgAnalyticsDashboard from "@/assets/images/clinical/analytics-dashboard.png";
 import imgPatientInteraction from "@/assets/images/clinical/patient-interaction.png";
 import { inter, manrope } from "@/utils/fonts";
+import { ClinicalPageIcons } from "@/assets/icons/clinical_page";
 
 // Hashed PNG mapping:
 // 05488866d06a06251c292cd1bba351b89b23b261.png -> hospital-setting.png
@@ -82,15 +83,15 @@ export default function Clinical() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { title: "Bio-Signal Analysis", desc: "Proprietary algorithm suite that processes over 200 biomarkers per scan to deliver sub-millimeter lesion detection.", status: "STUDY", color: "#003d9b" },
-              { title: "HIPAA Secured Lane", desc: "Every data transmission is encrypted with AES-256, with HIPAA-compliant infrastructure in all 50 US states.", status: "CERTIFIED", color: "#003d9b" },
-              { title: "EHR Integration", desc: "Native HL7 FHIR compatibility ensures smooth data flow into patients' existing electronic health records.", status: "PUBLISHED", color: "#456274" },
-              { title: "Cohort Analytics", desc: "Cross-institutional data pooling enables population-level insights while preserving individual patient privacy.", status: "ONGOING", color: "#456274" },
+              { icon: ClinicalPageIcons.icon7, title: "Bio-Signal Analysis", desc: "Proprietary algorithm suite that processes over 200 biomarkers per scan to deliver sub-millimeter lesion detection.", status: "STUDY", color: "#003d9b" },
+              { icon: ClinicalPageIcons.icon8, title: "HIPAA Secured Lane", desc: "Every data transmission is encrypted with AES-256, with HIPAA-compliant infrastructure in all 50 US states.", status: "CERTIFIED", color: "#003d9b" },
+              { icon: ClinicalPageIcons.icon9, title: "EHR Integration", desc: "Native HL7 FHIR compatibility ensures smooth data flow into patients' existing electronic health records.", status: "PUBLISHED", color: "#456274" },
+              { icon: ClinicalPageIcons.icon10, title: "Cohort Analytics", desc: "Cross-institutional data pooling enables population-level insights while preserving individual patient privacy.", status: "ONGOING", color: "#456274" },
             ].map(p => (
               <div key={p.title} className="border border-gray-200 rounded-2xl p-8">
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-12 h-12 bg-[#003d9b]/10 rounded-xl flex items-center justify-center">
-                    <div className="w-6 h-6 bg-[#003d9b]/30 rounded" />
+                    <img src={p.icon} alt="" className="w-5 h-5" />
                   </div>
                   <span className="text-xs font-semibold px-3 py-1 rounded border" style={{ color: p.color, borderColor: p.color, ...inter }}>{p.status}</span>
                 </div>
@@ -103,27 +104,60 @@ export default function Clinical() {
       </section>
 
       {/* ── Empowering Clinical Confidence ── */}
-      <section className="py-24 bg-[#f3f4f6]">
+      <section className="py-24 bg-[#f8fafc]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="rounded-2xl overflow-hidden">
-              <img src={imgAnalyticsDashboard} alt="Analytics Dashboard" className="w-full h-72 lg:h-80 object-cover" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+            <div className="relative rounded-[32px] bg-gradient-to-b from-[#0b274a] to-[#041427] p-8 pb-10 shadow-[0_20px_50px_rgba(8,112,184,0.15)] border border-white/5 overflow-hidden flex flex-col justify-between h-full">
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-lg mb-6 flex-1 min-h-[240px]">
+                <img
+                  src={imgAnalyticsDashboard}
+                  alt="Analytics Dashboard"
+                  className="absolute inset-0 w-full h-full object-cover opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b274a] via-transparent to-transparent" />
+              </div>
+              <div>
+                <h3 className="text-white text-2xl font-bold mb-2" style={manrope}>Real-time Visualization</h3>
+                <p className="text-white/75 text-sm leading-relaxed" style={inter}>
+                  Every data point is tracked, verified, and visualized for clinical stakeholders.
+                </p>
+              </div>
             </div>
-            <div>
+            <div className="flex flex-col justify-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#181c1f] mb-6" style={manrope}>Empowering Clinical Confidence</h2>
               <p className="text-[#434654] text-lg leading-relaxed mb-8" style={inter}>
-                We bridge the gap between DiabSense technology and clinical deployment. By providing a transparent audit trail of decisions, we enable unprecedented trust in technology-assisted care.
+                Our platform bridge the gap between hardware engineering and clinical application. By providing a transparent, auditable trail of evidence, we accelerate the path to market for breakthrough diabetic technologies.
               </p>
-              <ul className="space-y-4 mb-8">
-                {["Real-time Bi-Peripheral Monitoring", "Authenticated Decision Support", "Regulatory-Aligned Reporting"].map(f => (
-                  <li key={f} className="flex items-center gap-3 text-[#434654]" style={inter}>
-                    <Check size={18} color="#2d8ab8" className="shrink-0" /> {f}
-                  </li>
-                ))}
-              </ul>
-              <button className="bg-[#003d9b] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wide hover:bg-[#00296d] transition-colors" style={manrope}>
-                Schedule A Monitoring Deep-Dive
-              </button>
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#2d8ab8] flex items-center justify-center text-[#2d8ab8]">
+                    <Check size={12} strokeWidth={3} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#181c1f] text-base" style={manrope}>Automated Evidence Generation</h4>
+                    <p className="text-[#5b6170] text-sm mt-1" style={inter}>
+                      Reduce regulatory submission timelines by up to 40%.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#2d8ab8] flex items-center justify-center text-[#2d8ab8]">
+                    <Check size={12} strokeWidth={3} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#181c1f] text-base" style={manrope}>Site Performance Monitoring</h4>
+                    <p className="text-[#5b6170] text-sm mt-1" style={inter}>
+                      Monitor site-level variance and protocol compliance in real-time.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button className="bg-[#2d8ab8] hover:bg-[#24739b] text-white px-6 py-3.5 rounded-xl font-bold text-sm inline-flex items-center gap-2 transition-colors shadow-sm" style={manrope}>
+                  Schedule a Methodology Deep Dive <ArrowRight size={16} />
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,14 +1,10 @@
-import * as React from "react";
 import { useState, useEffect } from "react";
 import { Check, ArrowRight, ChevronRight, Linkedin } from "lucide-react";
 import imgAboutHero from "@/assets/images/about/about-hero.png";
 import imgAboutWorldMap from "@/assets/images/about/about-world-map.png";
-// import imgTeam1 from "@/assets/images/about/team1.png";
-// import imgTeam2 from "@/assets/images/about/team2.png";
-// import imgTeam3 from "@/assets/images/about/team3.png";
-// import imgTeam4 from "@/assets/images/about/team4.png";
 import { inter, manrope } from "@/utils/fonts";
 import { TeamMembers } from "@/assets/images/about/team-members/index.ts";
+import { AboutPageIcons } from "@/assets/icons/index.ts";
 import {
   Carousel,
   CarouselContent,
@@ -51,8 +47,8 @@ export default function About() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section className="bg-white py-20">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+      <section className="bg-white min-h-[calc(100vh-5rem)] flex items-center py-16 lg:py-0">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Clinical Evidence Standards v1.0</p>
@@ -73,8 +69,8 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden">
-              <img src={imgAboutHero} alt="About DiabSense" className="w-full h-72 lg:h-80 object-cover" />
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img src={imgAboutHero} alt="About DiabSense" className="w-full h-72 lg:h-[450px] object-cover" />
             </div>
           </div>
         </div>
@@ -120,7 +116,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[#f3f4f6] rounded-2xl p-8">
               <div className="w-12 h-12 bg-[#003d9b]/10 rounded-xl flex items-center justify-center mb-4">
-                <div className="w-6 h-6 bg-[#003d9b]/40 rounded" />
+                <img src={AboutPageIcons.icon5} alt="" className="w-5 h-5" />
               </div>
               <h4 className="text-xl font-bold text-[#181c1f] mb-3" style={manrope}>Medical Innovation</h4>
               <p className="text-[#434654] text-sm leading-relaxed mb-6" style={inter}>
@@ -133,7 +129,7 @@ export default function About() {
             </div>
             <div className="bg-[#003d9b] rounded-2xl p-8 relative overflow-hidden">
               <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                <div className="w-6 h-6 bg-white/60 rounded" />
+                <img src={AboutPageIcons.icon6} alt="" className="w-5 h-5" />
               </div>
               <h4 className="text-xl font-bold text-white mb-3" style={manrope}>Engineering Excellence</h4>
               <p className="text-white/80 text-sm leading-relaxed mb-6" style={inter}>
