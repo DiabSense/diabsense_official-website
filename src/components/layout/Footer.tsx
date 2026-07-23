@@ -64,9 +64,9 @@ export default function Footer({ setPage }: FooterProps) {
                 { label: "About Us", page: "about" as Page },
                 { label: "Solution", page: "solution" as Page },
                 { label: "Product", page: "products" as Page },
-                { label: "Clinical", page: "clinical" as Page },
+                { label: "Clinical Evidence", page: "clinical" as Page },
                 { label: "News", page: "news" as Page },
-                // { label: "Contact", page: "contact" as Page },
+                { label: "Contact", page: "contact" as Page }
               ].map((link) => (
                 <li key={link.label}>
                   <button

@@ -66,7 +66,7 @@ export default function Home({ setPage }: HomeProps) {
               </h1>
 
               <p className="text-[#434654] text-lg leading-relaxed mb-8 max-w-xl" style={inter}>
-                Prevent foot ulcers through early thermal monitoring using AI-powered dual-spectrum thermal + visual technology.
+                Prevent foot ulcers through early thermal monitoring using AI powered dual spectrum thermal + visual technology.
               </p>
 
               {/* Action Buttons */}
@@ -209,7 +209,7 @@ export default function Home({ setPage }: HomeProps) {
                 <span className="text-[#b02f00]">Clinical Precision</span>
               </h2>
               <p className="text-[#434654] text-lg leading-relaxed mb-8" style={inter}>
-                Our proprietary AI engine combines dual-spectrum imaging—High-Resolution Visual and Deep Thermal—to identify inflammation markers long before they are visible to the naked eye.
+                Our proprietary AI engine combines dual-spectrum imaging High-Resolution Visual and Deep Thermal to identify inflammation markers long before they are visible to the naked eye.
               </p>
               <div className="space-y-6">
                 {[

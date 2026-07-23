@@ -9,7 +9,7 @@ export const NAV_LINKS: { id: Page; label: string }[] = [
   { id: "home", label: "Home" },
   { id: "solution", label: "Solution" },
   { id: "products", label: "Products" },
-  { id: "clinical", label: "Clinical & Evidence" },
+  { id: "clinical", label: "Clinical Evidence" },
   { id: "about", label: "About" },
 ];
 
@@ -54,13 +54,11 @@ export default function Navbar({ page, setPage }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ease-in-out ${
-        visible ? "translate-y-0" : "-translate-y-full"
-      } ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ease-in-out ${visible ? "translate-y-0" : "-translate-y-full"
+        } ${isScrolled
           ? "bg-white/90 backdrop-blur-md border-b border-gray-100/50 shadow-sm shadow-black/5"
           : "bg-white border-b border-gray-100"
-      }`}
+        }`}
     >
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 h-full flex items-center justify-between">
         <button onClick={() => setPage("home")} className="shrink-0">
@@ -73,51 +71,45 @@ export default function Navbar({ page, setPage }: NavbarProps) {
             <button
               key={n.id}
               onClick={() => setPage(n.id)}
-              className={`relative group text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${
-                page === n.id
+              className={`relative group text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${page === n.id
                   ? "text-[#003d9b] font-bold"
                   : "text-gray-700 font-medium hover:text-[#003d9b]"
-              }`}
+                }`}
               style={inter}
             >
               {n.label}
               <span
-                className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#003d9b] transition-transform duration-300 origin-left ${
-                  page === n.id ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                }`}
+                className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#003d9b] transition-transform duration-300 origin-left ${page === n.id ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
               />
             </button>
           ))}
           <button
             onClick={() => setPage("news")}
-            className={`relative group hidden xl:block text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${
-              page === "news"
+            className={`relative group hidden xl:block text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${page === "news"
                 ? "text-[#003d9b] font-bold"
                 : "text-gray-700 font-medium hover:text-[#003d9b]"
-            }`}
+              }`}
             style={inter}
           >
             News & Updates
             <span
-              className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#003d9b] transition-transform duration-300 origin-left ${
-                page === "news" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-              }`}
+              className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#003d9b] transition-transform duration-300 origin-left ${page === "news" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                }`}
             />
           </button>
           <button
             onClick={() => setPage("contact")}
-            className={`relative group text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${
-              page === "contact"
+            className={`relative group text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${page === "contact"
                 ? "text-[#003d9b] font-bold"
                 : "text-gray-700 font-medium hover:text-[#003d9b]"
-            }`}
+              }`}
             style={inter}
           >
             Contact
             <span
-              className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#003d9b] transition-transform duration-300 origin-left ${
-                page === "contact" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-              }`}
+              className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#003d9b] transition-transform duration-300 origin-left ${page === "contact" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                }`}
             />
           </button>
         </div>
@@ -134,9 +126,8 @@ export default function Navbar({ page, setPage }: NavbarProps) {
             <button
               key={n.id}
               onClick={() => { setPage(n.id); setOpen(false); }}
-              className={`text-sm font-medium uppercase tracking-wide text-left ${
-                page === n.id ? "text-[#003d9b] font-bold" : "text-gray-700"
-              }`}
+              className={`text-sm font-medium uppercase tracking-wide text-left ${page === n.id ? "text-[#003d9b] font-bold" : "text-gray-700"
+                }`}
               style={inter}
             >
               {n.label}
@@ -144,18 +135,16 @@ export default function Navbar({ page, setPage }: NavbarProps) {
           ))}
           <button
             onClick={() => { setPage("news"); setOpen(false); }}
-            className={`text-sm font-medium uppercase tracking-wide text-left ${
-              page === "news" ? "text-[#003d9b] font-bold" : "text-gray-700"
-            }`}
+            className={`text-sm font-medium uppercase tracking-wide text-left ${page === "news" ? "text-[#003d9b] font-bold" : "text-gray-700"
+              }`}
             style={inter}
           >
             News & Updates
           </button>
           <button
             onClick={() => { setPage("contact"); setOpen(false); }}
-            className={`text-sm font-medium uppercase tracking-wide text-left ${
-              page === "contact" ? "text-[#003d9b] font-bold" : "text-gray-700"
-            }`}
+            className={`text-sm font-medium uppercase tracking-wide text-left ${page === "contact" ? "text-[#003d9b] font-bold" : "text-gray-700"
+              }`}
             style={inter}
           >
             Contact
