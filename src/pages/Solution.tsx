@@ -43,7 +43,7 @@ export default function Solution() {
       </section>
 
       {/* ── Ecosystem Diagram ── */}
-      <section className="bg-[#f8f9fb] py-24">
+      <section className="bg-[#f8f9fb] py-24 reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>The DiabSense Ecosystem</p>
@@ -71,7 +71,7 @@ export default function Solution() {
       </section>
 
       {/* ── Core Technology ── */}
-      <section className="bg-[#f8f9fb] py-24">
+      <section className="bg-[#f8f9fb] py-24 reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#00296d] mb-4" style={manrope}>Precision Bio-Sensing Architecture</h2>
@@ -125,7 +125,7 @@ export default function Solution() {
       </section>
 
       {/* ── Strategic Commercialization ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#00296d] mb-4" style={manrope}>Strategic Commercialization</h2>
@@ -155,7 +155,7 @@ export default function Solution() {
       </section>
 
       {/* ── Why DiabSense Wins Comparison ── */}
-      <section className="py-24 bg-[#f8f9fb]">
+      <section className="py-24 bg-[#f8f9fb] reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Competitive Analysis</p>
@@ -191,7 +191,7 @@ export default function Solution() {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-24 bg-[#f8f9fb]">
+      <section className="py-24 bg-[#f8f9fb] reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="bg-[#2d8ab8] rounded-[40px] p-16 lg:p-24 text-center overflow-hidden relative">
             <img src={imgSolutionCtaBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />

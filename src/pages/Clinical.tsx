@@ -47,7 +47,7 @@ export default function Clinical() {
       </section>
 
       {/* ── Verification Engine ── */}
-      <section className="bg-[#f3f4f6] py-20">
+      <section className="bg-[#f3f4f6] py-20 reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Clinical Evidence Standards v1.0</p>
@@ -73,7 +73,7 @@ export default function Clinical() {
       </section>
 
       {/* ── Validation Pillars ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-3xl font-bold text-[#181c1f]" style={manrope}>Validation Pillars</h2>
@@ -104,7 +104,7 @@ export default function Clinical() {
       </section>
 
       {/* ── Empowering Clinical Confidence ── */}
-      <section className="py-24 bg-[#f8fafc]">
+      <section className="py-24 bg-[#f8fafc] reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
             <div className="relative rounded-[32px] bg-gradient-to-b from-[#0b274a] to-[#041427] p-8 pb-10 shadow-[0_20px_50px_rgba(8,112,184,0.15)] border border-white/5 overflow-hidden flex flex-col justify-between h-full">
@@ -164,7 +164,7 @@ export default function Clinical() {
       </section>
 
       {/* ── Real-Time Metrics ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -195,7 +195,7 @@ export default function Clinical() {
       </section>
 
       {/* ── Clinical Deployment Roadmap ── */}
-      <section className="py-24 bg-[#f3f4f6]">
+      <section className="py-24 bg-[#f3f4f6] reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#181c1f]" style={manrope}>Clinical Deployment Roadmap</h2>
@@ -224,7 +224,7 @@ export default function Clinical() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white reveal">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="bg-[#003d9b] rounded-[40px] p-16 lg:p-24 text-center">
             <p className="text-[#91afff] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>DiabSense Inc.</p>

@@ -118,7 +118,7 @@ export default function News() {
 
       {/* ── Featured Post Section (Only when viewing "All") ── */}
       {activeCategory === "All" && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white reveal">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
             <div className="mb-10 flex items-center justify-between">
               <h2 className="text-2xl font-extrabold text-[#181c1f] tracking-tight" style={manrope}>
@@ -166,7 +166,7 @@ export default function News() {
       )}
 
       {/* ── Articles Grid ── */}
-      <section className={`py-16 bg-[#f3f4f6] ${activeCategory !== "All" ? "pt-16" : ""}`}>
+      <section className={`py-16 bg-[#f3f4f6] reveal ${activeCategory !== "All" ? "pt-16" : ""}`}>
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="mb-10 flex items-center justify-between">
             <h2 className="text-2xl font-extrabold text-[#181c1f] tracking-tight" style={manrope}>
@@ -232,7 +232,7 @@ export default function News() {
       </section>
 
       {/* ── Newsletter Section ── */}
-      <section className="py-24 bg-white border-t border-gray-100">
+      <section className="py-24 bg-white border-t border-gray-100 reveal">
         <div className="max-w-[1000px] mx-auto px-6">
           <div className="bg-gradient-to-r from-[#003d9b] to-[#104fae] rounded-3xl p-8 md:p-16 text-white text-center relative overflow-hidden shadow-2xl">
             <div className="absolute -right-24 -bottom-24 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
