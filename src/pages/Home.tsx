@@ -1,7 +1,11 @@
+import { useState, useEffect } from "react";
 import { Check, ArrowRight } from "lucide-react";
 import { Page } from "@/components/layout/Navbar";
-import imgScanningInterface from "@/assets/images/home/scanning-interface.png";
-import imgMedicalSolution from "@/assets/images/home/medical-solution.png";
+import imgScanningInterface from "@/assets/images/home/home-hero.png";
+import imgEcoSystem1 from "@/assets/images/home/diabsense_eco_system.jpg";
+import imgEcoSystem2 from "@/assets/images/home/diabsense_eco_system2.jpg";
+import imgEcoSystem3 from "@/assets/images/home/diabsense_eco_system3.jpg";
+
 // import imgHomeHeroBg from "@/assets/images/home/home-hero-bg.png";
 import { inter, manrope } from "@/utils/fonts";
 import { HomeIcons } from "@/assets/icons/index";
@@ -17,6 +21,19 @@ interface HomeProps {
 }
 
 export default function Home({ setPage }: HomeProps) {
+  const carouselImages = [
+    imgEcoSystem1,
+    imgEcoSystem2,
+    imgEcoSystem3
+  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [carouselImages.length]);
 
   return (
     <div>
@@ -196,9 +213,56 @@ export default function Home({ setPage }: HomeProps) {
       <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-            <div className="rounded-2xl overflow-hidden bg-[#f3f4f6] aspect-[4/3] relative">
-              <img src={imgMedicalSolution} alt="" className="w-full h-full object-cover opacity-80" />
-              <div className="absolute inset-0 bg-[rgba(0,61,155,0.1)] mix-blend-multiply" />
+            <div className="rounded-2xl overflow-hidden bg-[#f3f4f6] aspect-[4/3] relative group shadow-lg border border-gray-100/50">
+              {/* Slides */}
+              {carouselImages.map((img, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+                    }`}
+                >
+                  <img
+                    src={img}
+                    alt={`DiabSense Solution slide ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-[rgba(0,61,155,0.05)] mix-blend-multiply" />
+                </div>
+              ))}
+
+              {/* Prev / Next buttons on hover */}
+              <button
+                type="button"
+                onClick={() => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/20 hover:bg-white/35 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm"
+                aria-label="Previous slide"
+              >
+                <ArrowRight size={16} className="rotate-180" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrentSlide((prev) => (prev + 1) % carouselImages.length)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white/20 hover:bg-white/35 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm"
+                aria-label="Next slide"
+              >
+                <ArrowRight size={16} />
+              </button>
+
+              {/* Navigation Indicators */}
+              <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+                {carouselImages.map((_, index) => (
+                  <button
+                    type="button"
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide
+                      ? "bg-white w-6 shadow-sm"
+                      : "bg-white/50 hover:bg-white/80"
+                      }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
             <div>
               <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-6" style={manrope}>Our Solution</p>

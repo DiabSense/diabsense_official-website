@@ -10,7 +10,9 @@ export const NAV_LINKS: { id: Page; label: string }[] = [
   { id: "solution", label: "Solution" },
   { id: "products", label: "Products" },
   { id: "clinical", label: "Clinical Evidence" },
+  { id: "news", label: "News & Updates" },
   { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
 ];
 
 interface NavbarProps {
@@ -72,8 +74,8 @@ export default function Navbar({ page, setPage }: NavbarProps) {
               key={n.id}
               onClick={() => setPage(n.id)}
               className={`relative group text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${page === n.id
-                  ? "text-[#003d9b] font-bold"
-                  : "text-gray-700 font-medium hover:text-[#003d9b]"
+                ? "text-[#003d9b] font-bold"
+                : "text-gray-700 font-medium hover:text-[#003d9b]"
                 }`}
               style={inter}
             >
@@ -84,34 +86,6 @@ export default function Navbar({ page, setPage }: NavbarProps) {
               />
             </button>
           ))}
-          <button
-            onClick={() => setPage("news")}
-            className={`relative group hidden xl:block text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${page === "news"
-                ? "text-[#003d9b] font-bold"
-                : "text-gray-700 font-medium hover:text-[#003d9b]"
-              }`}
-            style={inter}
-          >
-            News & Updates
-            <span
-              className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#003d9b] transition-transform duration-300 origin-left ${page === "news" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                }`}
-            />
-          </button>
-          <button
-            onClick={() => setPage("contact")}
-            className={`relative group text-[13px] uppercase tracking-wide transition-colors whitespace-nowrap py-2 ${page === "contact"
-                ? "text-[#003d9b] font-bold"
-                : "text-gray-700 font-medium hover:text-[#003d9b]"
-              }`}
-            style={inter}
-          >
-            Contact
-            <span
-              className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#003d9b] transition-transform duration-300 origin-left ${page === "contact" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                }`}
-            />
-          </button>
         </div>
 
         {/* Mobile toggle */}
@@ -133,22 +107,6 @@ export default function Navbar({ page, setPage }: NavbarProps) {
               {n.label}
             </button>
           ))}
-          <button
-            onClick={() => { setPage("news"); setOpen(false); }}
-            className={`text-sm font-medium uppercase tracking-wide text-left ${page === "news" ? "text-[#003d9b] font-bold" : "text-gray-700"
-              }`}
-            style={inter}
-          >
-            News & Updates
-          </button>
-          <button
-            onClick={() => { setPage("contact"); setOpen(false); }}
-            className={`text-sm font-medium uppercase tracking-wide text-left ${page === "contact" ? "text-[#003d9b] font-bold" : "text-gray-700"
-              }`}
-            style={inter}
-          >
-            Contact
-          </button>
         </div>
       )}
     </nav>

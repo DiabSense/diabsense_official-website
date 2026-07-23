@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Check, Calendar, User, Newspaper, Mail } from "lucide-react";
-import imgFdaBreakthrough from "@/assets/images/news/fda-breakthrough.png";
-import imgClinicalStudy from "@/assets/images/news/clinical-study.png";
-import imgPartnership from "@/assets/images/news/partnership.png";
 import { inter, manrope } from "@/utils/fonts";
+import ARTICLES_DATA from "@/data/news.json";
 
 interface Article {
   id: string;
@@ -14,47 +12,29 @@ interface Article {
   summary: string;
   image: string;
   readTime: string;
+  linkedinUrl: string;
 }
 
-const ARTICLES: Article[] = [
-  {
-    id: "fda-breakthrough",
-    category: "Regulatory Milestone",
-    date: "July 10, 2026",
-    author: "Regulatory Affairs Team",
-    title: "DiabSense Receives FDA Breakthrough Device Designation for AI Thermal Foot Scanner",
-    summary: "The U.S. Food and Drug Administration (FDA) has granted Breakthrough Device Designation to DiabSense's proprietary AI-powered dual-spectrum thermal scanner. This designation recognizes the device's potential to provide more effective early detection of diabetic foot ulcers compared to standard clinical care.",
-    image: imgFdaBreakthrough,
-    readTime: "4 min read",
-  },
-  {
-    id: "clinical-study-2026",
-    category: "Clinical Research",
-    date: "June 24, 2026",
-    author: "Dr. Sarah Lin, Chief Medical Officer",
-    title: "New Clinical Trial Shows 85% Reduction in Diabetic Foot Ulcer Incidence",
-    summary: "A multi-center randomized controlled trial involving 420 patients has demonstrated that daily remote thermal monitoring using the DiabSense AI platform led to an 85% reduction in diabetic foot ulcer (DFU) incidence over a 12-month period, compared to regular standard care.",
-    image: imgClinicalStudy,
-    readTime: "6 min read",
-  },
-  {
-    id: "global-partnership",
-    category: "Partnerships",
-    date: "May 15, 2026",
-    author: "Business Development",
-    title: "DiabSense Partners with Global Diabetes Care Association to Expand Access",
-    summary: "DiabSense is proud to announce a strategic partnership with the Global Diabetes Care Association. Together, we will launch a pilot program across 50 clinics to integrate remote thermal scanning into routine diabetic care pathways, reaching over 10,000 high-risk patients.",
-    image: imgPartnership,
-    readTime: "3 min read",
-  },
-];
+const ARTICLES: Article[] = ARTICLES_DATA;
+
+// Dynamically resolve images inside src/assets/images/news/
+const newsImages = import.meta.glob<{ default: string }>("../assets/images/news/*.{png,jpg,jpeg,svg,webp}", { eager: true });
+
+const getImageUrl = (imageName: string) => {
+  if (!imageName) return "";
+  if (imageName.startsWith("http://") || imageName.startsWith("https://") || imageName.startsWith("/")) {
+    return imageName;
+  }
+  const path = `../assets/images/news/${imageName}`;
+  return newsImages[path]?.default || "";
+};
 
 export default function News() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "Regulatory Milestone", "Clinical Research", "Partnerships"];
+  const categories = ["All", "Awards & Recognition", "Accelerators & Programmes", "Events & Conferences", "Clinical & Research"];
 
   const filteredArticles = activeCategory === "All"
     ? ARTICLES
@@ -102,11 +82,10 @@ export default function News() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
-                  activeCategory === cat
-                    ? "bg-[#003d9b] text-white shadow-md shadow-[#003d9b]/15"
-                    : "bg-white text-[#456274] border border-gray-200 hover:border-[#003d9b]/30 hover:bg-gray-50"
-                }`}
+                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${activeCategory === cat
+                  ? "bg-[#003d9b] text-white shadow-md shadow-[#003d9b]/15"
+                  : "bg-white text-[#456274] border border-gray-200 hover:border-[#003d9b]/30 hover:bg-gray-50"
+                  }`}
                 style={manrope}
               >
                 {cat}
@@ -130,7 +109,7 @@ export default function News() {
             <div className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
               <div className="lg:col-span-7 overflow-hidden h-[300px] lg:h-auto min-h-[300px] relative">
                 <img
-                  src={featuredArticle.image}
+                  src={getImageUrl(featuredArticle.image)}
                   alt={featuredArticle.title}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -155,9 +134,15 @@ export default function News() {
                     <User size={14} className="text-[#2d8ab8]" />
                     <span>{featuredArticle.author}</span>
                   </div>
-                  <button className="flex items-center gap-2 text-[#003d9b] text-xs font-bold uppercase tracking-wider group/btn" style={manrope}>
+                  <a
+                    href={featuredArticle.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[#003d9b] text-xs font-bold uppercase tracking-wider group/btn"
+                    style={manrope}
+                  >
                     Read Article <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -189,7 +174,7 @@ export default function News() {
                 >
                   <div className="relative h-60 overflow-hidden">
                     <img
-                      src={art.image}
+                      src={getImageUrl(art.image)}
                       alt={art.title}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -219,9 +204,15 @@ export default function News() {
                         <User size={14} className="text-[#2d8ab8]" />
                         <span>{art.author}</span>
                       </div>
-                      <button className="flex items-center gap-2 text-[#003d9b] text-xs font-bold uppercase tracking-wider group/btn" style={manrope}>
+                      <a
+                        href={art.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-[#003d9b] text-xs font-bold uppercase tracking-wider group/btn"
+                        style={manrope}
+                      >
                         Read More <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
