@@ -90,7 +90,7 @@ export default function Contact() {
       </section>
 
       {/* ── Main Content Grid ── */}
-      <section className="py-20 bg-[#f3f4f6] reveal">
+      <section className="py-20 bg-[#f3f4f6]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 

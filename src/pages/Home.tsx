@@ -168,7 +168,7 @@ export default function Home({ setPage }: HomeProps) {
       </section>
 
       {/* ── Global Crisis Stats ── */}
-      <section className="bg-[#f3f4f6] py-20 reveal">
+      <section className="bg-[#f3f4f6] py-20">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>The Growing Global Crisis</p>
@@ -193,7 +193,7 @@ export default function Home({ setPage }: HomeProps) {
       </section>
 
       {/* ── Our Solution ── */}
-      <section className="py-24 bg-white reveal">
+      <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             <div className="rounded-2xl overflow-hidden bg-[#f3f4f6] aspect-[4/3] relative">
@@ -234,7 +234,7 @@ export default function Home({ setPage }: HomeProps) {
       </section>
 
       {/* ── 5-Step Protocol ── */}
-      <section className="bg-[#f7f9fe] py-24 reveal">
+      <section className="bg-[#f7f9fe] py-24">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>User Experience</p>
@@ -262,7 +262,7 @@ export default function Home({ setPage }: HomeProps) {
       </section>
 
       {/* ── Deployment Tiers ── */}
-      <section className="py-24 bg-white reveal">
+      <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Product Ecosystem</p>
@@ -331,7 +331,7 @@ export default function Home({ setPage }: HomeProps) {
       </section>
 
       {/* ── Why DiabSense Wins ── */}
-      <section className="py-24 bg-[#f3f4f6] reveal">
+      <section className="py-24 bg-[#f3f4f6]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#181c1f]" style={manrope}>Why DiabSense Wins</h2>
@@ -356,7 +356,7 @@ export default function Home({ setPage }: HomeProps) {
       </section>
 
       {/* ── Development Roadmap ── */}
-      <section className="py-24 bg-white reveal">
+      <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Development</p>
@@ -387,7 +387,7 @@ export default function Home({ setPage }: HomeProps) {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-24 bg-white reveal">
+      <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="bg-[#2d8ab8] rounded-[40px] p-16 lg:p-24 text-center overflow-hidden relative">
             {/* <img src={imgHomeHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" /> */}

@@ -77,7 +77,7 @@ export default function About() {
       </section>
 
       {/* ── Redefining Preventative Care ── */}
-      <section className="py-24 bg-[#f3f4f6] reveal">
+      <section className="py-24 bg-[#f3f4f6]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -105,7 +105,7 @@ export default function About() {
       </section>
 
       {/* ── Core Values ── */}
-      <section className="py-24 bg-white reveal">
+      <section className="py-24 bg-white">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#181c1f] mb-4" style={manrope}>Precision Engineering, Medical Integrity</h2>
@@ -144,7 +144,7 @@ export default function About() {
       </section>
 
       {/* ── Leadership Team ── */}
-      <section className="py-24 bg-[#f3f4f6] reveal">
+      <section className="py-24 bg-[#f3f4f6]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -231,7 +231,7 @@ export default function About() {
         
       </section> */}
 
-      <section className="py-24 bg-[#f3f4f6] reveal">
+      <section className="py-24 bg-[#f3f4f6]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -290,7 +290,7 @@ export default function About() {
       </section>
 
       {/* ── Engineered by ExcelTech ── */}
-      <section className="py-24 bg-[#003d9b] reveal">
+      <section className="py-24 bg-[#003d9b]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -320,7 +320,7 @@ export default function About() {
       </section>
 
       {/* ── Join Us ── */}
-      <section className="py-24 bg-[#f3f4f6] reveal">
+      <section className="py-24 bg-[#f3f4f6]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8 text-center">
           <p className="text-[#2d8ab8] text-xs font-bold uppercase tracking-[5px] mb-4" style={manrope}>Investors & Advisors</p>
           <h2 className="text-4xl font-bold text-[#181c1f] mb-4" style={manrope}>Join Us in Saving Limbs</h2>
